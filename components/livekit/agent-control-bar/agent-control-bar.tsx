@@ -25,7 +25,7 @@ export interface AgentControlBarProps
 }
 
 /**
- * A control bar specifically designed for voice assistant interfaces
+ * 🎧 Control bar for AI voice assistant — without image upload
  */
 export function AgentControlBar({
   controls,
@@ -145,20 +145,14 @@ export function AgentControlBar({
                   ></span>
                 </BarVisualizer>
               </TrackToggle>
-              <hr className="bg-separator1 peer-data-[state=off]/track:bg-separatorSerious relative z-10 -mr-px hidden h-4 w-px md:block" />
+              <hr className="bg-separator1 relative z-10 -mr-px hidden h-4 w-px md:block" />
               <DeviceSelect
                 size="sm"
                 kind="audioinput"
                 requestPermissions={false}
                 onMediaDeviceError={onMicrophoneDeviceSelectError}
                 onActiveDeviceChange={handleAudioDeviceChange}
-                className={cn([
-                  'pl-2',
-                  'peer-data-[state=off]/track:text-destructive-foreground',
-                  'hover:text-fg1 focus:text-fg1',
-                  'hover:peer-data-[state=off]/track:text-destructive-foreground focus:peer-data-[state=off]/track:text-destructive-foreground',
-                  'hidden rounded-l-none md:block',
-                ])}
+                className="hidden rounded-l-none md:block"
               />
             </div>
           )}
@@ -174,20 +168,14 @@ export function AgentControlBar({
                 onPressedChange={cameraToggle.toggle}
                 className="peer/track relative w-auto rounded-r-none pr-3 pl-3 disabled:opacity-100 md:border-r-0 md:pr-2"
               />
-              <hr className="bg-separator1 peer-data-[state=off]/track:bg-separatorSerious relative z-10 -mr-px hidden h-4 w-px md:block" />
+              <hr className="bg-separator1 relative z-10 -mr-px hidden h-4 w-px md:block" />
               <DeviceSelect
                 size="sm"
                 kind="videoinput"
                 requestPermissions={false}
                 onMediaDeviceError={onCameraDeviceSelectError}
                 onActiveDeviceChange={handleVideoDeviceChange}
-                className={cn([
-                  'pl-2',
-                  'peer-data-[state=off]/track:text-destructive-foreground',
-                  'hover:text-fg1 focus:text-fg1',
-                  'hover:peer-data-[state=off]/track:text-destructive-foreground focus:peer-data-[state=off]/track:text-destructive-foreground',
-                  'rounded-l-none',
-                ])}
+                className="rounded-l-none"
               />
             </div>
           )}
@@ -218,6 +206,7 @@ export function AgentControlBar({
             </Toggle>
           )}
         </div>
+
         {visibleControls.leave && (
           <Button
             variant="destructive"
